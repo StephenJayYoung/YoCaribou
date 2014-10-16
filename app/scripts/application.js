@@ -5,6 +5,7 @@ var Yocaribou = Ember.Application.create();
 // expose Yocaribou globally
 window.Yocaribou = Yocaribou;
 
+var near = $('#target input').val();
 var data = {
 		near: near,
 		section: 'food',
@@ -15,9 +16,10 @@ var data = {
 		client_secret: 'PAY5FKCOQB4NI0CSL5XDXNL1AOA2CA2CWTACTYILINBMK4S0'
 	};
 
-	$.ajax({
+	Ember.$.ajax({
 		type: "GET",
 	  url: "https://api.foursquare.com/v2/venues/explore",
 	  data: data,
 	  dataType: "json",
-//use something different than success (which will work better w/ ember)
+	});
+
