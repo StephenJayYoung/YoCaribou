@@ -45,9 +45,8 @@ Yocaribou.APIRoute = Ember.Route.extend({
     })
     .then(function(data) {
       console.log(data);
-
+      var photoArray = data;
       // TODO: that return statement is bogus!
-      return { imageURL: 'some URL' };
       // var photoArray = data.photos.photo
       // var arrayOfPhotoURLs = [];
       // _.forEach(photoArray, function(photo) {
@@ -55,6 +54,8 @@ Yocaribou.APIRoute = Ember.Route.extend({
       //   arrayOfPhotoURLs.push({ photoURL: photoURL });
       // });
       // return arrayOfPhotoURLs;
+      return { photoArray: 'some URL' };
+     
     });
         //use .then (promise based thing)
 	}
