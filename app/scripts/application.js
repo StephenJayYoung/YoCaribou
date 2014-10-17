@@ -8,6 +8,7 @@ window.Yocaribou = Yocaribou;
 //router and controller for Cheeseburger file
 Yocaribou.Router.map(function() {
 	this.route('cheeseburger', {path:'/cheeseburger'})
+	this.route('API', {path:'/API'})
 });
 
 Yocaribou.CheeseburgerRoute = Ember.Route.extend({
@@ -21,20 +22,30 @@ Yocaribou.CheeseburgerController = Ember.ObjectController.extend({
 });
 
 
-//router and controller for Foursquare API
-Yocaribou.Router.map(function() {
-	this.route('API', {path:'/API'})
-});
+//router for Foursquare API
 
 Yocaribou.APIRoute = Ember.Route.extend({
 	model: function(){
-		return {stuffs: 'Does this show the FSquare API?'}
+		// use a different url, manipulate the data
+		var url = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=98a80bf27f25bb1381e9bea26b6282e5&per_page=500&format=json&nojsoncallback=1";
+    return Ember.$.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'JSON'
+    })
+    .then(function(data) {
+      console.log(data);
+      var photoArray = data.photos.photo
+      var arrayOfPhotoURLs = [];
+      photoArray.forEach(function(photo) {
+        var photoURL = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+        arrayOfPhotoURLs.push({ photoURL: photoURL });
+      });
+      return arrayOfPhotoURLs;
+    });
 	}
 });
 
-Yocaribou.APIController = Ember.ObjectController.extend({
-//enter the ajax API stuff here
-});
 
 
 
