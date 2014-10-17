@@ -26,14 +26,39 @@ Yocaribou.CheeseburgerController = Ember.ObjectController.extend({
 
 Yocaribou.APIRoute = Ember.Route.extend({
 	model: function(){
-		// use a different url, manipulate the data
-	  var url: "https://api.foursquare.com/v2/venues/explore",
+		var data = {
+			near: 'Portland, OR', // TODO: how to change this to work from something on the page?
+			section: 'food',
+			venuePhotos: '1',
+
+			// required stuffs
+			v: '20141002',
+			client_id: 'THF0PIAQPEPL3UJZJGVVXKL5S1FM4P54MGZARXUFJ1ZGBENP',
+			client_secret: 'PAY5FKCOQB4NI0CSL5XDXNL1AOA2CA2CWTACTYILINBMK4S0'
+		};
+	  var url = "https://api.foursquare.com/v2/venues/explore";
     return Ember.$.ajax({
       type: 'GET',
       url: url,
+      data: data,
       dataType: 'JSON'
     })
+    .then(function(data) {
+      console.log(data);
 
+      // TODO: that return statement is bogus!
+      return { imageURL: 'some URL' };
+      // var photoArray = data.photos.photo
+      // var arrayOfPhotoURLs = [];
+      // _.forEach(photoArray, function(photo) {
+      //   var photoURL = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+      //   arrayOfPhotoURLs.push({ photoURL: photoURL });
+      // });
+      // return arrayOfPhotoURLs;
+    });
+        //use .then (promise based thing)
+	}
+});
 
 
 
