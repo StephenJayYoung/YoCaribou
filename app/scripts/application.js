@@ -28,9 +28,13 @@ Yocaribou.Router.map(function() {
 
 Yocaribou.APIRoute = Ember.Route.extend({
 	model: function(){
-		return {stuff: 'Can I haz a cheeseburger?'}
+		return {stuffs: 'Does this show the FSquare API?'}
 	}
-	.property();
 });
+
+Yocaribou.APIController = Ember.ObjectController.extend({
+//enter the ajax API stuff here
+});
+
 
 
