@@ -33,18 +33,7 @@ Yocaribou.APIRoute = Ember.Route.extend({
       url: url,
       dataType: 'JSON'
     })
-    .then(function(data) {
-      console.log(data);
-      var photoArray = data.photos.photo
-      var arrayOfPhotoURLs = [];
-      photoArray.forEach(function(photo) {
-        var photoURL = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
-        arrayOfPhotoURLs.push({ photoURL: photoURL });
-      });
-      return arrayOfPhotoURLs;
-    });
-	}
-});
+
 
 
 
