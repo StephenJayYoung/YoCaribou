@@ -11,7 +11,7 @@ Yocaribou.Router.map(function() {
 
 Yocaribou.CheeseburgerRoute = Ember.Route.extend({
 	model: function(){
-		return {stuff: 'this is a cheeseburger'}
+		return {stuff: 'Can I haz a cheeseburger?'}
 	}
 });
 
