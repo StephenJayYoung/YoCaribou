@@ -45,19 +45,12 @@ Yocaribou.APIRoute = Ember.Route.extend({
     })
     .then(function(data) {
       console.log(data);
-      var photoArray = data;
-      // TODO: that return statement is bogus!
-      // var photoArray = data.photos.photo
-      // var arrayOfPhotoURLs = [];
-      // _.forEach(photoArray, function(photo) {
-      //   var photoURL = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
-      //   arrayOfPhotoURLs.push({ photoURL: photoURL });
-      // });
-      // return arrayOfPhotoURLs;
-      return { photoArray: 'some URL' };
-     
+      console.log(data.response);
+      //console log the path, get a url, make sure that url works, set that path equal to url, it will show up in browser	
+      // TODO: this should be something from data
+      var url = 'https://www.google.com/images/srpr/logo11w.png';
+      return { photoURL: url };
     });
-        //use .then (promise based thing)
 	}
 });
 
