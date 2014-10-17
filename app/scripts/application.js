@@ -46,6 +46,15 @@ Yocaribou.APIRoute = Ember.Route.extend({
     .then(function(data) {
       console.log(data);
       console.log(data.response);
+      console.log(data.response.groups[0]);
+      console.log(data.response.groups[0].items);
+	    console.log(data.response.groups[0].items[0]);
+	   	console.log(data.response.groups[0].items[0].venues);
+	   	// console.log(data.response.groups[0].items[0].venues.photos);
+	   	// console.log(data.response.groups[0].items[0].venues.photos.groups[0	]);
+
+
+
       //console log the path, get a url, make sure that url works, set that path equal to url, it will show up in browser	
       // TODO: this should be something from data
       var url = 'https://www.google.com/images/srpr/logo11w.png';
