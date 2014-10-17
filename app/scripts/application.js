@@ -27,7 +27,7 @@ Yocaribou.CheeseburgerController = Ember.ObjectController.extend({
 Yocaribou.APIRoute = Ember.Route.extend({
 	model: function(){
 		// use a different url, manipulate the data
-		var url = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=98a80bf27f25bb1381e9bea26b6282e5&per_page=500&format=json&nojsoncallback=1";
+	  var url: "https://api.foursquare.com/v2/venues/explore",
     return Ember.$.ajax({
       type: 'GET',
       url: url,
