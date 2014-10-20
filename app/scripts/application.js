@@ -44,8 +44,7 @@ Yocaribou.APIRoute = Ember.Route.extend({
       dataType: 'JSON'
     })
     .then(function(data) {
-     var url = data.response.groups[0].items[0].venue.photos.groups[0].items[0].prefix);
-
+     // var url = data.response.groups[0].items[0].venue.photos.groups[0].items[0].prefix;
      //  console.log(data);
      //  console.log(data.response);
      //  console.log(data.response.groups[0]);
@@ -54,14 +53,19 @@ Yocaribou.APIRoute = Ember.Route.extend({
 	   	// console.log(data.response.groups[0].items[0].venue);
 	   	// console.log(data.response.groups[0].items[0].venue.photos);
 	   	// console.log(data.response.groups[0].items[0].venue.photos.groups[0]);
-	   	// console.log(data.response.groups[0].items[0].venue.photos.groups[0].items[0].prefix);
+	   	// console.log(data.response.groups[0].items[0].venue.photos.groups[0].items[0].prefix;
+	   	
+	   	var photoInfo = data.response.groups[0].items[0].venue.photos.groups[0].items[0];
+	  	var prefix = photoInfo.prefix;
+	  	var suffix = photoInfo.suffix;
+	  	var size = "300x300";
+	  	var url = prefix + size + suffix;
 
 
-
-      //console log the path, get a url, make sure that url works, set that path equal to url, it will show up in browser	
+      //console log the path, get a url, make sure that url works, set that path equal to url, it will show up in browser
       // TODO: this should be something from data
       // var url = 'https://www.google.com/images/srpr/logo11w.png';
-      return { photoURL: url };
+      return {photoURL: url};
     });
 	}
 });
